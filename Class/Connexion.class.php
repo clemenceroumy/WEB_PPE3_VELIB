@@ -3,10 +3,10 @@ require_once 'MyPDO.class.php';
 class Connexion 
 {
 	// variable STATIC : à portée de classe, une seule valeur pour toutes les instances
-    private static $dbName = 'bd_ppe3_veliberte' ;
-    private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
+    private static $dbName = '2019_slam9' ;
+    private static $dbHost = '192.168.10.70' ;
+    private static $dbUsername = '2019_slam9';
+    private static $dbUserPassword = 'P@ssw0rd';
      
     private static $cont  = null; //une seule variable pour toutes les connexions
      
