@@ -21,7 +21,8 @@ class PageSecuriseeService extends PageBase {
     
           <ul class="nav navbar-nav">
             <li><a href="index.php">VELIBERTE</a></li>
-            <li><a href="consultationVelosClassiquesDipos.php">Velos classiques </a></li>				
+			<li><a href="consultationVelosClassiquesDipos.php">Velos classiques </a></li>
+			<li><a href="consultationVelosElectriquesDipos.php">Velos Electriques </a></li>				
 			</ul>
 		</div>';
 		echo $this->menu;

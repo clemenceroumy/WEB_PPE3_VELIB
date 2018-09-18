@@ -22,7 +22,15 @@ $pageConsultationVelos->contenu = '<section>
             <thead>	<tr><th>Numero du vélo</th><th>position GPS l</th><th>position GPS L</th><th>disponibilité</th><th></th></tr></thead><tbody>';
 //parcours du résultat de la requete
 foreach ($listeVELO as $unVELO){
-	$pageConsultationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td><td>'.$unVELO->etatV.'</td>';
+
+	if($unVELO->etatV == 'R'){
+		$pageConsultationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>pas de latitude</td><td>pas de longitude</td><td>'.$unVELO->etatV.'</td>';
+	}
+
+	else{
+		$pageConsultationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td><td>'.$unVELO->etatV.'</td>';
+	}
+	
 
 	if ($sessionService== true){// si on est connecté en tant que SERVICE
 		$pageConsultationVelos->contenu .='<td><form class="form-inline" action="../CONTROLEUR/tt_majVelo.php" method="GET" >

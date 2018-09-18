@@ -17,7 +17,9 @@ class VeloElectriqueModele {
 	public function getVelosElectrique() {
 		// recupere TOUS les vélos classiques 
 		if ($this->idc) {
-			$req ="SELECT * from veloelectrique INNER JOIN vehicule ON veloelectrique.numV = vehicule.numV;";
+			$req ="SELECT * from veloelectrique 
+			INNER JOIN vehicule ON veloelectrique.numV = vehicule.numV
+			INNER JOIN borne ON veloelectrique.numB= borne.codeB;";
 			$result = $this->idc->query($req);
 			Connexion::disconnect();
 			return $result;
