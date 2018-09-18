@@ -25,7 +25,7 @@ foreach ($listeVELO as $unVELO){
 	$pageConsultationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->nomB.' , '.$unVELO->numRueB.' '.$unVELO->nomrueB.'</td><td>'.$unVELO->etatV.'</td>';
 
 	if ($sessionService== true){// si on est connecté en tant que SERVICE
-		$pageConsultationVelos->contenu .='<td><form class="form-inline" action="../CONTROLEUR/tt_majVelo.php" method="GET" >
+		$pageConsultationVelos->contenu .='<td><form class="form-inline" action="../CONTROLEUR/tt_majVeloElectrique.php" method="GET" >
 			<input type="hidden" name="num" value='. $unVELO->numV.'>
 			<input type="submit" class="btn btn-warning" name="etat" value="REPARER"/>
 			<input type="submit" class="btn btn-success" name="etat" value="DISPONIBLE"/>

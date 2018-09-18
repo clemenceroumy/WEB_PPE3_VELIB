@@ -9,6 +9,8 @@ class VeloModele {
 		// creation de la connexion afin d'executer les requetes
 		try {
 			$this->idc = Connexion::connect();
+			$this->reqChangeCoordonnées = $this->idc->prepare('UPDATE velo SET latitudeV=:latitudeV, longitudeV=:longitudeV WHERE numV=:numV');
+			
 		} catch ( PDOException $e ) {
 			echo "<h1>probleme access BDD</h1>";
 		}
@@ -34,6 +36,14 @@ class VeloModele {
 			Connexion::disconnect();
 			return $result;
 		}
+	}
+
+	public function modifCoordonnée($latitude, $longitude, $numV){
+		$this->reqChangeCoordonnées->bindParam(':latitudeV', $latitude);		
+		$this->reqChangeCoordonnées->bindParam(':longitudeV', $longitude);
+		$this->reqChangeCoordonnées->bindParam(':numV', $numV);
+    	$this->reqChangeCoordonnées->execute();		
+    	Connexion::disconnect();
 	}
 		
 	

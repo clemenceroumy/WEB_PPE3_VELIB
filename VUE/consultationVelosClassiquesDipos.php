@@ -23,13 +23,7 @@ $pageConsultationVelos->contenu = '<section>
 //parcours du résultat de la requete
 foreach ($listeVELO as $unVELO){
 
-	if($unVELO->etatV == 'R'){
-		$pageConsultationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>pas de latitude</td><td>pas de longitude</td><td>'.$unVELO->etatV.'</td>';
-	}
-
-	else{
 		$pageConsultationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td><td>'.$unVELO->etatV.'</td>';
-	}
 	
 
 	if ($sessionService== true){// si on est connecté en tant que SERVICE
