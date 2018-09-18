@@ -30,6 +30,10 @@ foreach ($listeVELO as $unVELO){
 		$pageConsultationVelos->contenu .='<td><form class="form-inline" action="../CONTROLEUR/tt_majVelo.php" method="GET" >
 			<input type="hidden" name="num" value='. $unVELO->numV.'>
 			<input type="submit" class="btn btn-warning" name="etat" value="REPARER"/>
+			</form></td>
+
+			<td><form class="form-inline" action="coordonnees.php" method="GET" >
+			<input type="hidden" name="num" value='. $unVELO->numV.'>
 			<input type="submit" class="btn btn-success" name="etat" value="DISPONIBLE"/>
 			</form></td></tr>';
 		}			
