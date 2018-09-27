@@ -8,11 +8,10 @@
 
 
 $pageConsultationVelos->contenu = 
-    '<form action="../CONTROLEUR/tt_majVelo.php" method="GET">
+    '<form action="../CONTROLEUR/tt_majVeloElectrique.php" method="GET">
         <input type="hidden" name="num" value='.$num.'>
         <input type="hidden" name="etat" value='.$etat.'>
-        <input type="text" name="latitude" id="latitude" required="">
-        <input type="text" name="longitude" id="longitude" required="">
+        <input type="number" name="numB" id="numB" required="">
         <input type="submit" name="submit">
     </form>';
 

@@ -9,6 +9,7 @@ class VeloElectriqueModele {
 		// creation de la connexion afin d'executer les requetes
 		try {
 			$this->idc = Connexion::connect();
+			$this->reqChangeBorne = $this->idc->prepare('UPDATE veloelectrique SET numB=:numB WHERE numV=:numV');
 		} catch ( PDOException $e ) {
 			echo "<h1>probleme access BDD</h1>";
 		}
@@ -38,6 +39,14 @@ class VeloElectriqueModele {
 			return $result;
 		}
 	}
+
+	public function modifBorne($numB, $numV){
+		$this->reqChangeBorne->bindParam(':numB', $numB);		
+		$this->reqChangeBorne->bindParam(':numV', $numV);
+    	$this->reqChangeBorne->execute();		
+    	Connexion::disconnect();
+	}
+		
 		
 	
 }
