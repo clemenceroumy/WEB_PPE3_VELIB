@@ -28,6 +28,11 @@ function listeVelosElectrique(){
     return $VELOMod->getVelosElectriqueDispo(); //requete via le modele
     }
 
+function listeBorne(){
+    $VELOMod = new VeloElectriqueModele();
+    return $VELOMod->listeBorne();
+}
+
 ?>
 
 

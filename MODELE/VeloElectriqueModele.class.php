@@ -46,6 +46,16 @@ class VeloElectriqueModele {
     	$this->reqChangeBorne->execute();		
     	Connexion::disconnect();
 	}
+
+
+	public function listeBorne(){
+		if ($this->idc) {
+			$req ="SELECT * from borne";
+			$result = $this->idc->query($req);
+			Connexion::disconnect();
+			return $result;
+		}
+	}
 		
 		
 	
