@@ -14,7 +14,7 @@
             $etat='D';
             if ($_GET['etat']== "REPARER"){ //test de la valeur du bouton
                 $etat='R';
-                $monvelo->modifBorne(null,$_GET['num']); // PB QUAND BORNE = NULL -> N'affiche plus le velo sur le site 
+                $monvelo->modifBorne(0,$_GET['num']); // PB QUAND BORNE = NULL -> N'affiche plus le velo sur le site 
             }
 
             else{
