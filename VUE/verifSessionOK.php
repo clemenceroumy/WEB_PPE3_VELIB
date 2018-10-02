@@ -1,7 +1,24 @@
 <?php
+session_start();
 include ('../Class/autoload.php');
 
 $page= new PageBase ( "VELIBERTE - Se Connecter" );
+
+if (isset($_SESSION ['mode']) ) {
+	/* Dans ce cas, on detruit la session SUR LE SERVEUR */
+	$_SESSION = array (); /* on vide le contenu de session sur le serveur */
+	// Dans ce cas, on detruit aussi l'identifiant de SESSION en recreant le cookie de SESSION avec une dateHeure perimee (time() -42000)
+	if (ini_get ( "session.use_cookies" )) {
+		$params = session_get_cookie_params ();
+		setcookie ( session_name (), '', time () - 42000, $params ["path"], $params ["domain"], $params ["secure"] );
+	}
+	// on detruit la session sur le serveur
+	session_destroy ();
+	?> <script type="text/javascript"> alert('session detruite');</script> <?php
+
+	// affichage du msg 
+    header ('Location:verifSessionOK.php?error=SUCCESS : Vous venez d\'être déconnecté !');
+}
 
 
 $page->contenu = "<h3>Veuillez vous connecter... </h3>";

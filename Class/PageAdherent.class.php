@@ -23,7 +23,7 @@ class PageAdherent extends PageBase {
             <li><a href="index.php">VELIBERTE</a></li>
 			<li><a href="consultationVelosClassiquesDipos.php">Velos classiques </a></li>
             <li><a href="consultationVelosElectriquesDipos.php">Velos Electriques </a></li>		
-            <li><a href="location.php">Location velo</a></li>			
+            <li><a href="locationVelo.php">Location velo</a></li>			
 		</ul>
 		</div>';
 		echo $this->menu;

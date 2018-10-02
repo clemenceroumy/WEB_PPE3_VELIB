@@ -41,9 +41,9 @@ class VehiculeModele {
 		// recupere TOUS les véhicules
 		if ($this->idc) {
 			$req ="SELECT vehicule.numV, vehicule.etatV,latitudeV, longitudeV, NumB
-			 from vehicule 
+			from vehicule 
 			LEFT JOIN velo ON velo.numV = vehicule.numV
-			LEFT JOIN veloElectrique ve ON ve.numV = vehicule.numV " ;
+			LEFT JOIN veloelectrique ve ON ve.numV = vehicule.numV " ;
 			$result = $this->idc->query($req);
 			Connexion::disconnect();
 			return $result;

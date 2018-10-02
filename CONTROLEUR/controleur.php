@@ -1,5 +1,5 @@
 <?php
-
+require_once ('../MODELE/VehiculeModele.class.php');
 require_once ('../MODELE/VeloModele.class.php');
 require_once ('../MODELE/VeloElectriqueModele.class.php');
 require_once ('../MODELE/AdherentModele.class.php');
@@ -31,6 +31,11 @@ function listeVelosElectrique(){
 function listeBorne(){
     $VELOMod = new VeloElectriqueModele();
     return $VELOMod->listeBorne();
+}
+
+function listeVehicules(){
+    $VELOMod = new VehiculeModele();
+    return $VELOMod->getVehicules();
 }
 
 ?>
