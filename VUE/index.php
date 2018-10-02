@@ -3,10 +3,17 @@ session_start ();
 
 require_once ('../Class/PageBase.class.php');
 require_once ('../Class/PageSecuriseeService.class.php');
+require_once ('../Class/PageAdherent.class.php');
 
 if (isset ( $_SESSION ['mode'] ) && $_SESSION ['mode']=="serviceTechnique" ) {
 	$pageIndex = new PageSecuriseeService ( "Bienvenue sur VELIBERTE..." );
-} else {
+} 
+
+else if(isset ( $_SESSION ['mode'] ) && $_SESSION ['mode']=="adherent" ){
+	$pageIndex = new PageAdherent( "Bienvenue sur VELIBERTE..." );
+}
+
+else {
 	$pageIndex = new PageBase ( "Bienvenue sur VELIBERTE..." );
 }
 
