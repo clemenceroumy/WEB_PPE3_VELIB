@@ -10,6 +10,12 @@ if (isset($_SESSION ['mode']) && $_SESSION ['mode']=="serviceTechnique") {
 	$sessionService= true;
 	$listeVELO = listeVelosClassiques();//appel de la fonction dans le CONTROLEUR : page controleur.php
 } 
+
+else if(isset($_SESSION ['mode']) && $_SESSION ['mode']=="adherent"){
+	$pageConsultationVelos = new PageAdherent ("Consulter les vélos disponibles...");
+	$listeVELO = listeVelosClassiquesDisponibles();
+}
+
 else {
 	//si on est pas connecté en tant que serviceTechnique, on ne voit que les vélos DISPONIBLES
 	$pageConsultationVelos = new PageBase ("Consulter les vélos disponibles...");
