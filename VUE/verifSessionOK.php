@@ -25,7 +25,7 @@ $page->contenu = "<h3>Veuillez vous connecter... </h3>";
 		// action # car on reste sur la meme page
 $page->contenu .= '	<form class="form-inline" id="formInscriptionAdmin" method="POST" action="../CONTROLEUR/tt_adherent.php">
   					<div class="form-group">
-    					<input type="text" class="form-control" name="idU" id="idU"size="15" maxlength="15" placeholder="Identifiant" autofocus required >
+    					<input type="text" class="form-control" name="idU" id="idU" size="15" maxlength="15" placeholder="Identifiant" autofocus required >
     					<input type="password" class="form-control" name="mdpU" id="mdpU" size="15" maxlength="15" placeholder="Mot de passe" required>
   					</div>
  					<button type="submit" class="btn btn-default">Valider</button>

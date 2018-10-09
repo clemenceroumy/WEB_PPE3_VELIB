@@ -7,8 +7,8 @@ $login= $_POST['idU'];
 $mdp = $_POST['mdpU'];
 
 $Adherent = new AdherentModele();
-$countA= $Adherent->getVerifConnexion($login, $mdp);
-
+$countAdherent= $Adherent->getVerifConnexion($login, $mdp);
+$idAdherent= $Adherent->getAdherent($login, $mdp);
 
     // SI MODE ADMIN
     if (($_POST ['idU'] === "AS") && ($_POST ['mdpU'] === "AS")) {
@@ -21,10 +21,10 @@ $countA= $Adherent->getVerifConnexion($login, $mdp);
     } 
     
     // SI la requete retourne 1 donc que le login et mdp sont dans la BDD
-    else if ($countA == 1){
+    else if ($countAdherent == 1){
 
         $_SESSION ['mode'] = "adherent";
-    
+        //$_SESSION['idAdherent']= $idAdherent;
         $page = new PageAdherent( "VELIBERTE - Mode Connecté" );
         header ('Location:../VUE/index.php');	
     }

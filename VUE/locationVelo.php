@@ -28,9 +28,13 @@ $pageLocationVelos->contenu = '<section>
           <table class="table table-striped" class="table-responsive">
             <thead>	<tr><th>Numero du vélo</th><th>position GPS l</th><th>position GPS L</th><th></th></tr></thead><tbody>';
 //parcours du résultat de la requete
-foreach ($listeVELOc as $unVELO){
 
-		$pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td><td><input type="submit" value="LOUER"></td>';
+foreach ($listeVELOc as $unVELO){
+    $pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td>
+    <td><form action="dateLocation.php" method="POST">
+        <input type="hidden" name="num" value='.$unVELO->numV.'>
+        <input type="submit" name="louer" value="LOUER" class="btn btn-success">
+    </form></td>';
 				
 	}
 $listeVELOc->closeCursor(); //pour liberer la memoire occupee par le resultat de la requete
@@ -46,7 +50,11 @@ $pageLocationVelos->contenu .= '<section>
             <thead>	<tr><th>Numero du vélo</th><th>borne</th><th></th></tr></thead><tbody>';
 //parcours du résultat de la requete
 foreach ($listeVELOe as $unVELO){
-	$pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->nomB.' , '.$unVELO->numRueB.' '.$unVELO->nomrueB.'</td><td><input type="submit" value="LOUER"></td>';
+  $pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->nomB.' , '.$unVELO->numRueB.' '.$unVELO->nomrueB.'</td>
+  <td><form action="dateLocation.php" method="POST">
+      <input type="hidden" name="num" value='.$unVELO->numV.'>
+      <input type="submit" name="louer" value="LOUER" class="btn btn-success">
+  </form></td>';
 			
 	}
 $listeVELOe->closeCursor(); //pour liberer la memoire occupee par le resultat de la requete

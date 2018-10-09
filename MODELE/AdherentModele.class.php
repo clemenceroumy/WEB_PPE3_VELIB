@@ -23,6 +23,15 @@ class AdherentModele {
 			Connexion::disconnect();
 			return $result;
 		}
-    }
+	}
+	
+	public function getAdherent($login, $mdp){
+		if ($this->idc) {
+			$req ="SELECT numA from adherent WHERE login='".$login."' AND mdp='".$mdp."';";
+			$result = $this->idc->query($req);
+			Connexion::disconnect();
+			return $result;
+		}
+	}
 
 }
