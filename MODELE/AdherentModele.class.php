@@ -18,7 +18,7 @@ class AdherentModele {
     
     public function getVerifConnexion($login, $mdp){
         if ($this->idc) {
-			$req ="SELECT COUNT(*) from adherent WHERE login='".$login."' AND mdp='".$mdp."';";
+			$req ="SELECT COUNT(*) as compteur from adherent WHERE login='".$login."' AND mdp='".$mdp."';";
 			$result = $this->idc->query($req);
 			Connexion::disconnect();
 			return $result;

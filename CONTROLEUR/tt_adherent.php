@@ -10,6 +10,9 @@ $Adherent = new AdherentModele();
 $countAdherent= $Adherent->getVerifConnexion($login, $mdp);
 $idAdherent= $Adherent->getAdherent($login, $mdp);
 
+foreach($countAdherent as $c){
+    $compteurAdherent= $c->compteur;
+}
     // SI MODE ADMIN
     if (($_POST ['idU'] === "AS") && ($_POST ['mdpU'] === "AS")) {
 
@@ -21,7 +24,7 @@ $idAdherent= $Adherent->getAdherent($login, $mdp);
     } 
     
     // SI la requete retourne 1 donc que le login et mdp sont dans la BDD
-    else if ($countAdherent == 1){
+    else if ($compteurAdherent == 1){
 
         $_SESSION ['mode'] = "adherent";
         //$_SESSION['idAdherent']= $idAdherent;
@@ -31,7 +34,7 @@ $idAdherent= $Adherent->getAdherent($login, $mdp);
     
     else{
         // les identifiants de connexion existe mais ne sont pas VALABLES
-            header ('Location:../VUE/verifSessionOK.php?error=ERREUR : Login ou mot de passe non valide !');
+        header ('Location:../VUE/verifSessionOK.php?error=ERREUR : Login ou mot de passe non valide !');
     }
 
 
