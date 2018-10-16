@@ -13,6 +13,10 @@ $idAdherent= $Adherent->getAdherent($login, $mdp);
 foreach($countAdherent as $c){
     $compteurAdherent= $c->compteur;
 }
+
+foreach($idAdherent as $a){
+    $id= $a->numA;
+}
     // SI MODE ADMIN
     if (($_POST ['idU'] === "AS") && ($_POST ['mdpU'] === "AS")) {
 
@@ -27,7 +31,7 @@ foreach($countAdherent as $c){
     else if ($compteurAdherent == 1){
 
         $_SESSION ['mode'] = "adherent";
-        //$_SESSION['idAdherent']= $idAdherent;
+        $_SESSION['idAdherent']= $id;
         $page = new PageAdherent( "VELIBERTE - Mode Connecté" );
         header ('Location:../VUE/index.php');	
     }

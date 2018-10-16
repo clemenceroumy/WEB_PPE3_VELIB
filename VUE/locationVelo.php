@@ -32,7 +32,7 @@ $pageLocationVelos->contenu = '<section>
 foreach ($listeVELOc as $unVELO){
     $pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td>
     <td><form action="dateLocation.php" method="POST">
-        <input type="hidden" name="num" value='.$unVELO->numV.'>
+        <input type="hidden" name="numvelo" value='.$unVELO->numV.'>
         <input type="submit" name="louer" value="LOUER" class="btn btn-success">
     </form></td>';
 				
@@ -52,7 +52,7 @@ $pageLocationVelos->contenu .= '<section>
 foreach ($listeVELOe as $unVELO){
   $pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->nomB.' , '.$unVELO->numRueB.' '.$unVELO->nomrueB.'</td>
   <td><form action="dateLocation.php" method="POST">
-      <input type="hidden" name="num" value='.$unVELO->numV.'>
+      <input type="hidden" name="numvelo" value='.$unVELO->numV.'>
       <input type="submit" name="louer" value="LOUER" class="btn btn-success">
   </form></td>';
 			

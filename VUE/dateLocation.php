@@ -13,8 +13,6 @@ if (isset($_SESSION ['mode']) && $_SESSION ['mode']=="serviceTechnique") {
 
 else if(isset($_SESSION ['mode']) && $_SESSION ['mode']=="adherent"){
 	$pageLocationVelos = new PageAdherent ("Consulter les vélos disponibles...");
-    $listeVELOc = listeVelosClassiquesDisponibles();
-    $listeVELOe = listeVelosElectriqueDisponibles();
 }
 
 else {
@@ -22,11 +20,10 @@ else {
 	$pageLocationVelos = new PageBase ("Consulter les vélos disponibles...");
 }
 
-$pageLocationVelos->contenu = "<form action='..\CONTROLEUR\tt_location.php' method='POST'>
-    <input type='hidden' name='numVelo' value='".$_POST['num']."'>
+$pageLocationVelos->contenu = "<form action='../CONTROLEUR/tt_location.php' method='POST'>
+    <input type='hidden' name='numVelo' value='".$_POST['numvelo']."'>
     <input type='datetime-local' name='dateLocation' >
     <input type='submit' name='Louer' value='confirmer la location'>
-</form>"
-;
+</form>";
 
 $pageLocationVelos->afficher();
