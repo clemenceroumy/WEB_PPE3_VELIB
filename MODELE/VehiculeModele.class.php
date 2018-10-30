@@ -14,7 +14,7 @@ class VehiculeModele {
 
 		//les requetes AVEC PARAMETRES sont préparées si la connexion est valide
 			$this->reqChangeEtat = $this->idc->prepare('UPDATE vehicule SET etatV=:etatV WHERE numV=:numV;');
-			$this->reqGetEtat = $this->idc->prepare('SELECT etatV from vehicule WHERE numV=:numV;');
+			//$this->reqGetEtat = $this->idc->prepare('SELECT etatV from vehicule WHERE numV=:numV;');
 
 		} catch ( PDOException $e ) {
 			echo "<h1>probleme access BDD</h1>";
@@ -31,10 +31,10 @@ class VehiculeModele {
 	}
 	public function getEtatVehicule($num) {
 		// recupere TOUS les véhicules
-		$this->reqGetEtat->bindParam(':numV', $num);
-		$etat = $this->reqGetEtat->execute()->fetch()->etatV;
+		$req= "SELECT etatV from vehicule WHERE numV=".$num;
+		$result = $this->idc->query($req);
 		Connexion::disconnect();
-		return $etat;
+		return $result;
 	}
 	
 	public function getVehicules() {
@@ -44,6 +44,15 @@ class VehiculeModele {
 			from vehicule 
 			LEFT JOIN velo ON velo.numV = vehicule.numV
 			LEFT JOIN veloelectrique ve ON ve.numV = vehicule.numV " ;
+			$result = $this->idc->query($req);
+			Connexion::disconnect();
+			return $result;
+		}
+	}
+
+	public function getTypeVehicule($numV){
+		if ($this->idc) {
+			$req ="SELECT COUNT(numV) as compteur from velo WHERE numV=$numV";
 			$result = $this->idc->query($req);
 			Connexion::disconnect();
 			return $result;

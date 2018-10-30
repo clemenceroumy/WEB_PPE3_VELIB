@@ -8,7 +8,8 @@
 
 
 $pageConsultationVelos->contenu = 
-    '<form action="../CONTROLEUR/tt_majVelo.php" method="GET">
+    '<h3>où deposer le velo ?</h3>
+    <form action="../CONTROLEUR/tt_majVelo.php" method="GET">
         <input type="hidden" name="num" value='.$num.'>
         <input type="hidden" name="etat" value='.$etat.'>
         <input type="text" name="latitude" id="latitude" required="" placeholder="entrez la latitude" onkeypress="return bloque(event);">

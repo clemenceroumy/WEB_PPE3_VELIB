@@ -20,10 +20,11 @@ else {
 	$pageLocationVelos = new PageBase ("Consulter les vélos disponibles...");
 }
 
-$pageLocationVelos->contenu = "<form action='../CONTROLEUR/tt_location.php' method='POST'>
+$pageLocationVelos->contenu = "<form action='../CONTROLEUR/tt_rendre.php' method='POST'>
     <input type='hidden' name='numVelo' value='".$_POST['numvelo']."'>
-    <input type='datetime-local' name='dateLocation' placeholder='YY-MM-DD HH:MM:SS'>
-    <input type='submit' name='Louer' value='confirmer la location'>
+    <input type='hidden' name='dateheureLoc' value='".$_POST['dateheureLoc']."'>
+    <input type='datetime-local' name='dateRetour' placeholder='YYYY-MM-DD HH:MM:SS''>
+    <input type='submit' name='Louer' value='confirmer le depôt'>
 </form>";
 
 $pageLocationVelos->afficher();

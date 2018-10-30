@@ -12,7 +12,6 @@ $longitude= $_GET['longitude'];
 if (isset($_GET['num'])&& isset($_GET['etat'])){
 //numéro du vélo passé dans l'URL lors de l'appel de la page
 	try{
-		$etat='D';
 		if ($_GET['etat']== "REPARER"){ //test de la valeur du bouton
 			$etat='R';
 			$monvelo->modifCoordonnée(0,0,$_GET['num']);

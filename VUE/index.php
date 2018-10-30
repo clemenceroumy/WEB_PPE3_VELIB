@@ -11,6 +11,7 @@ if (isset ( $_SESSION ['mode'] ) && $_SESSION ['mode']=="serviceTechnique" ) {
 
 else if(isset ( $_SESSION ['mode'] ) && $_SESSION ['mode']=="adherent" ){
 	$pageIndex = new PageAdherent( "Bienvenue sur VELIBERTE..." );
+	//$pageIndex->menu .= <li><a href="veloLouer.php">Mes velos</a></>	verifier sir l'adherent à des velos en location
 }
 
 else {
