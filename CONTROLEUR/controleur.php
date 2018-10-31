@@ -44,6 +44,11 @@ function listeLocation($numA){
     return $LOCmod->afficherLocation($numA);
 }
 
+function listeCoordonnee(){
+    $VELOmod= new VeloModele();
+    return $VELOmod->getCoordonnees();
+}
+
 ?>
 
 

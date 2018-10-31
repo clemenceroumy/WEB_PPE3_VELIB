@@ -45,6 +45,15 @@ class VeloModele {
     	$this->reqChangeCoordonnées->execute();		
     	Connexion::disconnect();
 	}
+
+	public function getCoordonnees(){
+		if ($this->idc) {
+			$req ="SELECT * from velo INNER JOIN vehicule ON velo.numV = vehicule.numV WHERE latitudeV > 0 AND longitudeV >0";
+			$result = $this->idc->query($req);
+			Connexion::disconnect();
+			return $result;
+		}
+	}
 		
 	
 }
