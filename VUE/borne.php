@@ -6,7 +6,7 @@
         $num=$_GET['num'];
         $etat= $_GET['etat'];
         $pageConsultationVelos = new PageSecuriseeService ("Consulter les vélos disponibles...");
-        $listeBORNE = listeBorne();
+        $listeBORNE = listeBorneDispo();
 
         $pageConsultationVelos->contenu = 
             '<h3>où deposer le velo ?</h3>
@@ -16,9 +16,9 @@
                 <select name=numB>
                     ';
 
-                    foreach($listeBORNE as $b){
-                        $pageConsultationVelos->contenu .= '<option value='.$b->codeB.'>'.$b->nomB." ".$b->numRueB." ".$b->nomrueB.'</option>';
-                    }
+            foreach($listeBORNE as $b){
+                $pageConsultationVelos->contenu .= '<option value='.$b->codeB.'>'.$b->nomB." ".$b->numRueB." ".$b->nomrueB.' ('.$b->nbPlaces.')</option>';
+            }
 
         $pageConsultationVelos->contenu .=  ' </select>
 

@@ -25,11 +25,11 @@ try{
         $count= $t->compteur;
     }
 
-    if($count != 0){
+    if($count != 0){ //velo classique
         header("location: ../VUE/coordonnees.php?num=".$idVelo."&etat=".$etat); 
     }
 
-    else{
+    else{// velo electrique
         header("location: ../VUE/borne.php?num=".$idVelo."&etat=".$etat);
     }
     

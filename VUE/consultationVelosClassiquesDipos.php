@@ -5,6 +5,7 @@ require_once ('../Class/autoload.php');
 require_once ('../CONTROLEUR/controleur.php');
 
 $sessionService= false;
+$sessionUtilisateur= false;
 if (isset($_SESSION ['mode']) && $_SESSION ['mode']=="serviceTechnique") {
 	$pageConsultationVelos = new PageSecuriseeService ("Consulter les vélos disponibles...");
 	$sessionService= true;
@@ -18,6 +19,7 @@ else if(isset($_SESSION ['mode']) && $_SESSION ['mode']=="adherent"){
 
 else {
 	//si on est pas connecté en tant que serviceTechnique, on ne voit que les vélos DISPONIBLES
+	$sessionUtilisateur= true;
 	$pageConsultationVelos = new PageBase ("Consulter les vélos disponibles...");
 	$listeVELO = listeVelosClassiquesDisponibles();//appel de la fonction dans le CONTROLEUR : page controleur.php
 	$listeCoordonnee= listeCoordonnee();
@@ -50,32 +52,32 @@ $listeVELO = null; //pour une autre execution avec cette variable
 
 
 //GOOGLE MAPS
-$pageConsultationVelos->contenu .= '</tbody></table></div>
-<div class="col-md-6">
-<style>
- #map {
-   width: 100%;
-   height: 400px;
-   background-color: grey;
- }
-</style>
-<div id="map"></div>
-<script>
-	function initMap() {
-		var map = new google.maps.Map(document.getElementById("map"), {zoom: 1, center: {lat: 47.216962, lng: 2.895742}});';
+$pageConsultationVelos->contenu .= '</tbody></table></div>';
 
-	foreach($listeCoordonnee as $c){
-		$pageConsultationVelos->contenu .= 'var marker= new google.maps.Marker({position: {lat:'.$c->latitudeV.' , lng: '.$c->longitudeV.'}, map: map});';
-	}
-
-$pageConsultationVelos->contenu .= '
+if($sessionUtilisateur == true){
+	$pageConsultationVelos->contenu .='<div class="col-md-6">
+	<style>
+	 #map {
+	   width: 100%;
+	   height: 400px;
+	   background-color: grey;
+	 }
+	</style>
+	<div id="map"></div>
+	<script>
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById("map"), {zoom: 1, center: {lat: 47.216962, lng: 2.895742}});';
+	
+		foreach($listeCoordonnee as $c){
+			$pageConsultationVelos->contenu .= 'var marker= new google.maps.Marker({position: {lat:'.$c->latitudeV.' , lng: '.$c->longitudeV.'}, map: map});';
 		}
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJrxMhfWA81RTtpfw1ZxBGQNezAiTOl0k&callback=initMap"></script>
-</div>';
-
-
-
+	
+	$pageConsultationVelos->contenu .= '
+			}
+		</script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJrxMhfWA81RTtpfw1ZxBGQNezAiTOl0k&callback=initMap"></script>
+	</div>';
+}
 
 
 // TRAITEMENT du RETOUR DE L'ERREUR par le controleur
