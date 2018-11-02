@@ -66,7 +66,7 @@ if($sessionUtilisateur == true){
 	<div id="map"></div>
 	<script>
 		function initMap() {
-			var map = new google.maps.Map(document.getElementById("map"), {zoom: 1, center: {lat: 47.216962, lng: 2.895742}});';
+			var map = new google.maps.Map(document.getElementById("map"), {zoom: 4, center: {lat: 47.216962, lng: 2.895742}});';
 	
 		foreach($listeCoordonnee as $c){
 			$pageConsultationVelos->contenu .= 'var marker= new google.maps.Marker({position: {lat:'.$c->latitudeV.' , lng: '.$c->longitudeV.'}, map: map});';

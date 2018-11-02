@@ -21,13 +21,27 @@ try{
         $count= $t->compteur;
     }
 
-    if($count != 0){
+    if($count != 0){ // velo classique
         $monvelo= new VeloModele();
         $monvelo->modifCoordonnée(0, 0, $idVelo); // si c'est un velo mettre les coordonnées à 0
     }
 
-    else{
+    else{ // velo electrique
         $monvelo= new VeloElectriqueModele();
+
+        //On recupere la borne du velo que l'on met à reparer
+        $borneReparer= $monvelo->getUnVelosElectrique($idVelo);
+        foreach($borneReparer as $b){
+            $numBReparer= $b->numB;
+        }
+
+        // Pour la borne du velo, quand celui-ci est loué, on ajoute une place à la borne
+        $nbPlaces= $monvelo->placeBorne($numBReparer);
+            foreach($nbPlaces as $b){
+                $place= $b->nbPlaces + 1;
+            }
+        $monvelo->modifPlace($numBReparer,$place);
+        
         $monvelo->modifBorne(0,$idVelo); // si c'est un velo electrique, mettre la borne à 0
     }
     
