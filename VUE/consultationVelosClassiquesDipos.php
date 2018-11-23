@@ -25,7 +25,7 @@ else {
 	$listeCoordonnee= listeCoordonnee();
 }
 
-$pageConsultationVelos->contenu = '<section>
+$pageConsultationVelos->contenu = date("Y-m-d H:i:s").'<section>
 					<div class="col-md-6">
           <table class="table table-striped" class="table-responsive">
             <thead>	<tr><th>Numero du vélo</th><th>position GPS l</th><th>position GPS L</th><th>disponibilité</th><th></th></tr></thead><tbody>';

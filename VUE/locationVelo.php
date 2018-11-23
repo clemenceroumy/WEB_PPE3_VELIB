@@ -31,7 +31,8 @@ $pageLocationVelos->contenu = '<section>
 
 foreach ($listeVELOc as $unVELO){
     $pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->latitudeV.'</td><td>'.$unVELO->longitudeV.'</td>
-    <td><form action="dateLocation.php" method="POST">
+    <td><form action="../CONTROLEUR/tt_location.php" method="POST">
+        <input type="hidden" name="dateLocation" value="'.date("Y-m-d H:i:s").'">
         <input type="hidden" name="numvelo" value='.$unVELO->numV.'>
         <input type="submit" name="louer" value="LOUER" class="btn btn-success">
     </form></td>';
@@ -51,7 +52,8 @@ $pageLocationVelos->contenu .= '<section>
 //parcours du résultat de la requete
 foreach ($listeVELOe as $unVELO){
   $pageLocationVelos->contenu .= '<tr><td>'.$unVELO->numV.'</td><td>'.$unVELO->nomB.' , '.$unVELO->numRueB.' '.$unVELO->nomrueB.'</td>
-  <td><form action="dateLocation.php" method="POST">
+  <td><form action="../CONTROLEUR/tt_location.php" method="POST">
+      <input type="hidden" name="dateLocation" value="'.date("Y-m-d H:i:s").'">
       <input type="hidden" name="numvelo" value='.$unVELO->numV.'>
       <input type="submit" name="louer" value="LOUER" class="btn btn-success">
   </form></td>';

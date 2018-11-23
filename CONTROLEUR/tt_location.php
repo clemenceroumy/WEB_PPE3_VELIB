@@ -5,7 +5,7 @@ require_once('../MODELE/VehiculeModele.class.php');
 require_once('../MODELE/VeloModele.class.php');
 require_once('../MODELE/VeloElectriqueModele.class.php');
 
-$idVelo= $_POST['numVelo'];
+$idVelo= $_POST['numvelo'];
 $idAdherent= $_SESSION['idAdherent'];
 $dateLocation= $_POST['dateLocation'];
 

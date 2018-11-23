@@ -3,7 +3,7 @@ session_start();
 require_once('../MODELE/LocationModele.class.php');
 require_once('../MODELE/VehiculeModele.class.php');
 
-$idVelo= $_POST['numVelo'];
+$idVelo= $_POST['numvelo'];
 $idAdherent= $_SESSION['idAdherent'];
 $dateLocation= $_POST['dateheureLoc'];
 $dateRetour= $_POST['dateRetour'];
@@ -17,8 +17,7 @@ foreach($getetat as $e){
 }
 
 try{
-    $supressionLocation= $Location->suppressionLocation($idVelo,$idAdherent,$dateLocation, $dateRetour);
-    //$Vehicule->changeEtat('D',$idVelo); 
+    $supressionLocation= $Location->suppressionLocation($idVelo,$idAdherent,$dateLocation,$dateRetour);
 
     $velo=$Vehicule->getTypeVehicule($idVelo); // retourne 0 si c'est un velo electrique et 1 si c'est un velo
     foreach($velo as $t){
@@ -32,8 +31,6 @@ try{
     else{// velo electrique
         header("location: ../VUE/borne.php?num=".$idVelo."&etat=".$etat);
     }
-    
-    //header("location: ../VUE/veloLouer.php");
 
 } 
 catch (Exception $e){

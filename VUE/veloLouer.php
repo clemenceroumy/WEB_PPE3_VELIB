@@ -24,9 +24,10 @@ $pageLocation->contenu = '<div class="col-md-6">
 <thead><tr><th>Numero du vélo loué</th><th>Date de Location</th><th></th></tr></thead><tbody>';
 
 foreach ($listeLOC as $uneLOC){
-    $pageLocation->contenu .= '<tr><td>'.$uneLOC->numV.'</td><td>'.$uneLOC->dateheureLoc.'</td><td><form action="dateDepot.php" method="POST">
+    $pageLocation->contenu .= '<tr><td>'.$uneLOC->numV.'</td><td>'.$uneLOC->dateheureLoc.'</td><td><form action="../CONTROLEUR/tt_rendre.php" method="POST">
     <input type="hidden" name="numvelo" value='.$uneLOC->numV.'>
-    <input type="hidden" name="dateheureLoc" value='.$uneLOC->dateheureLoc.'>
+    <input type="hidden" name="dateheureLoc" value="'.$uneLOC->dateheureLoc.'">
+    <input type="hidden" name="dateRetour" value="'.date("Y-m-d H:i:s").'">
     <input type="submit" name="rendre" value="RENDRE" class="btn btn-danger">
 </form></td>';
 }

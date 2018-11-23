@@ -10,7 +10,7 @@ class LocationModele {
 		try {
 			$this->idc = Connexion::connect();
 			$this->ajoutLocation = $this->idc->prepare("INSERT INTO louer(numV, numA, dateheureLoc) VALUES (:numV, :numA, :dateheureLoc)");
-			$this->suppressionLocation = $this->idc->prepare("UPDATE louer SET dateheureDep = :dateheureDep WHERE numV= :numV AND numA=:numA AND dateheureLoc = :dateheureLoc");
+			$this->suppressionLocation = $this->idc->prepare("UPDATE louer SET dateheureDep=:dateheureDep WHERE numV= :numV AND numA=:numA AND dateheureLoc = :dateheureLoc");
 
 		} catch ( PDOException $e ) {
 			echo "<h1>probleme access BDD</h1>";
