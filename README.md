@@ -2,11 +2,11 @@
 
 Projet réalisé en 2018 dans le cadre de ma deuxième année de BTS SIO.
 
-Contexte:
+### Contexte:
 
-  Service de locations/prêts de vélos classiques et éléctriques. 
+  Service de locations/prêts de vélos classiques et électriques. 
   
   L’application web propose :
-      - en mode public, la consultation tous les véhicules disponibles à la location.
-      - en mode service technique, rendre indisponible un véhicule pour réparation.
-      - en mode adhérent, location et déposition d'un vélo.
+  * **mode public :** la consultation tous les véhicules disponibles à la location.
+  * **mode service :** rendre indisponible un véhicule pour réparation.
+  * **mode adhérents :** location et déposition d'un vélo.
